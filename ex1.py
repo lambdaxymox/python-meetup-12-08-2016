@@ -1,4 +1,6 @@
 import sys
+import exercises.factorial as fac
+import exercises.parser    as exparser
 
 
 def usage():
@@ -13,11 +15,12 @@ def main():
     fname = sys.argv[1]
 
     with open(fname, 'r') as handle:
-        string = handle.read()
-        result = map(lambda n: (n, factorial(n)), filter(lambda n: n >= 0 and n <= 20, parse(string)))
+        parser = exparser.FileParser()
+        fac_data = parser.parse(handle)
+        results = map(lambda n: (n, factorial(n)), fac_data)
         
-        for res in result:
-            n, facn = res
+        for result in results:
+            n, facn = result
             print('factorial({}) = {}'.format(n, facn))
 
 

@@ -77,6 +77,8 @@ class TestIntegration(unittest.TestCase):
 
         results = map(lambda n: (n, fac.factorial(n)), values)
 
+        self.assertEqual(len(keys), len(results))
+
         for result in results:
             n, facn = result
             self.assertEqual(facn, FAC_DICT[n])
