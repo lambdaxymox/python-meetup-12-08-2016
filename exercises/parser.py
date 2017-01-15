@@ -62,7 +62,7 @@ class FileParser:
         if not lines:
             raise ValueError('Corrupt file.')
 
-        line_number, line = lines.next()
+        line_number, line = next(lines)
 
         try:
             count = self.number_parser.parse(line)

@@ -17,7 +17,7 @@ def main():
     with open(fname, 'r') as handle:
         parser = exparser.FileParser()
         fac_data = parser.parse(handle)
-        results = map(lambda n: (n, factorial(n)), fac_data)
+        results = map(lambda n: (n, fac.factorial(n)), fac_data)
         
         for result in results:
             n, facn = result
