@@ -52,7 +52,7 @@ class TestParser(unittest.TestCase):
 			with self.assertRaises(Exception):
 				parser.parse(handle)
 
-	"""
+	
 	def test_parser_should_fail_if_input_length_mismatch(self):
 		source_file = TEST_PARSER_DATA_3
 		parser = exparser.FileParser()
@@ -60,4 +60,4 @@ class TestParser(unittest.TestCase):
 		with open(source_file, mode='r') as handle:
 			with self.assertRaises(ValueError):
 				parser.parse(handle)
-	"""
+	

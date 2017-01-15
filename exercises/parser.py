@@ -82,7 +82,7 @@ class FileParser:
 			numbers.append(next_number)
 
 		if len(numbers) != count:
-			raise ValueError('Corrupt file. Got {} numbers. Needed {} numbers.'.format(count, len(tail)))
+			raise ValueError('Corrupt file. Got {} numbers. Needed {} numbers.'.format(count, len(numbers)))
 
 		return numbers
 
