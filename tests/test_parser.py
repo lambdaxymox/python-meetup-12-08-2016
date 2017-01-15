@@ -3,4 +3,6 @@ import exercises.parser as parser
 
 
 class TestParser(unittest.TestCase):
-	pass
+
+	def test_parser(self):
+		self.assertEqual(True, True)
