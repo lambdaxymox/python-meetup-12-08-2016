@@ -1,28 +1,3 @@
-class ParseResult:
-	def __int__(self, result=None, error=None):
-		self._result = result
-		self._error = error
-
-	@property
-	def result(self):
-		return self._result
-
-	@property
-	def error(self):
-		return self._error
-
-	def is_result(self):
-		return (self.result != None) and (self.error == None)
-
-	def is_error(self):
-		return (self.result == None) and (self.error != None)
-
-	def is_valid(self):
-		return \
-			(self.is_result() and not self.is_error()) or \
-			(self.is_error()  and not self.is_result())
-
-
 class ParseError:
 	def __init__(self, line_number, text, reason):
 		self._line_number = line_number
@@ -72,17 +47,22 @@ class FileParser:
 		self.number_parser = NumberParser()
 
 	def parse(self, handle):
-		
+		numbers = []		
 		lines = enumerate(handle)
 
+		if not lines:
+			raise ValueError('Corrupt file.'.format(count, len(tail)))
+
+		line_number, line = lines.next()
+
 		try:
-			(line_number, count) = self.number_parser.parse(lines.next())
+			count = self.number_parser.parse(line)
 		except ValueError as e:
 			reason = Reason("Not a valid integer in given base {}: {}.".format(self.number_parser.base, line))
 				
 			raise ParseError(line_number, line, reason)
 
-		for (line_number, line) in enumerate(handle):
+		for (line_number, line) in lines:
 			try:
 				next_number = self.number_parser.parse(line)
 			except ValueError as e:
