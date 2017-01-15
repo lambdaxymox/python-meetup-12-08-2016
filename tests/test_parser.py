@@ -1,10 +1,6 @@
 import unittest
 import exercises.parser as exparser
-
-
-TEST_PARSER_DATA_1 = 'data/test_parser1.txt'
-TEST_PARSER_DATA_2 = 'data/test_parser2_bad1.txt'
-TEST_PARSER_DATA_3 = 'data/test_parser3_bad2.txt'
+import testdata
 
 
 class TestParser(unittest.TestCase):
@@ -34,7 +30,7 @@ class TestParser(unittest.TestCase):
 
 
     def test_parser_should_accept_correctly_formatted_input(self):
-        source_file = TEST_PARSER_DATA_1 
+        source_file = testdata.TEST_PARSER_DATA_1 
         parser = exparser.FileParser()
 
         with open(source_file, mode='r') as handle:
@@ -45,7 +41,7 @@ class TestParser(unittest.TestCase):
 
     
     def test_parser_should_reject_bad_file_input(self):
-        source_file = TEST_PARSER_DATA_2
+        source_file = testdata.TEST_PARSER_DATA_2
         parser = exparser.FileParser()
 
         with open(source_file, mode='r') as handle:
@@ -54,7 +50,7 @@ class TestParser(unittest.TestCase):
 
     
     def test_parser_should_fail_if_input_length_mismatch(self):
-        source_file = TEST_PARSER_DATA_3
+        source_file = testdata.TEST_PARSER_DATA_3
         parser = exparser.FileParser()
 
         with open(source_file, mode='r') as handle:

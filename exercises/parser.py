@@ -46,7 +46,7 @@ class NumberParser:
         try:
             value = int(line, base=self.base)
         except:
-            raise ValueError("Not a valid integer in given base {}: {}.".format(self.base, line))
+            raise ValueError('Not a valid integer in given base {}: {}.'.format(self.base, line))
 
         return value
 
@@ -67,7 +67,8 @@ class FileParser:
         try:
             count = self.number_parser.parse(line)
         except ValueError as e:
-            reason = Reason("Not a valid integer in given base {}: {}.".format(self.number_parser.base, line))
+            reason = Reason('Not a valid integer in given base {}: {}.'
+                           .format(self.number_parser.base, line))
                 
             raise ParseError(line_number, line, reason)
 
@@ -75,14 +76,16 @@ class FileParser:
             try:
                 next_number = self.number_parser.parse(line)
             except ValueError as e:
-                reason = Reason("Not a valid integer in given base {}: {}.".format(self.number_parser.base, line))
+                reason = Reason('Not a valid integer in given base {}: {}.'
+                               .format(self.number_parser.base, line))
                 
                 raise ParseError(line_number, line, reason)
 
             numbers.append(next_number)
 
         if len(numbers) != count:
-            raise ValueError('Corrupt file. Got {} numbers. Needed {} numbers.'.format(count, len(numbers)))
+            raise ValueError('Corrupt file. Got {} numbers. Needed {} numbers.'
+                            .format(count, len(numbers)))
 
         return numbers
 
