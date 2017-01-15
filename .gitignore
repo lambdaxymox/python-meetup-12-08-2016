@@ -5,5 +5,7 @@
 python_meetup_12_08_2016.egg-info
 target
 __pycache__
-*/__pycache
+*/__pycache__
+*/__pycache__/*
 *.pyc
+
