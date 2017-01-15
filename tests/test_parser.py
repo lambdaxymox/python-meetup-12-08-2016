@@ -49,13 +49,8 @@ class TestParser(unittest.TestCase):
 		parser = exparser.FileParser()
 
 		with open(source_file, mode='r') as handle:
-			try:
+			with self.assertRaises(Exception):
 				parser.parse(handle)
-			except Exception as e:
-				self.assertSuccess(e)
-
-			# Fail if exception isn't thrown.
-			self.fail("An exception should have been thrown.")
 
 	"""
 	def test_parser_should_fail_if_input_length_mismatch(self):

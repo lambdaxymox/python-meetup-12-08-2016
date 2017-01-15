@@ -1,4 +1,7 @@
-class ParseError:
+class ParseError(Exception):
+	"""
+	A parse error class for throwing exceptions when parsing a stream of tokens.
+	"""
 	def __init__(self, line_number, text, reason):
 		self._line_number = line_number
 		self._text = text
@@ -15,6 +18,12 @@ class ParseError:
 	@property
 	def reason(self):
 		return self._reason
+
+	def __repr__(self):
+		return self.reason.message
+
+	def __str__(self):
+		return self.reason.message
 
 
 class Reason:
