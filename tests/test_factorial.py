@@ -58,5 +58,5 @@ class TestFactorial(unittest.TestCase):
 		for i in fac_table.keys():
 			result = fac.factorial(i)
 			correct_result = fac_table[i]
-			print("({},{})".format(i, correct_result))
+
 			self.assertEqual(result, correct_result)
