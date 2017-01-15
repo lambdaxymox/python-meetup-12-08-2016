@@ -1,0 +1,6 @@
+.cache
+.cache/*
+.tox
+.tox/*
+python_meetup_12_08_2016.egg-info
+target
