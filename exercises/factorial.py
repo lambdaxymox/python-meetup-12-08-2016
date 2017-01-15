@@ -9,8 +9,6 @@ def factorial(n):
         )
     
     try:
-        result = functools.reduce(operator.mul, range(2,n+1), 1)
+        return functools.reduce(operator.mul, range(2,n+1), 1)
     except:
         raise ValueError('factorial() only accepts integral values.')
-
-    return result

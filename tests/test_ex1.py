@@ -6,6 +6,7 @@ import textwrap
 import io
 import exercises.parser    as exparser
 import exercises.factorial as fac
+import ex1
 
 
 # The first 20 integers in a string for parsing.
